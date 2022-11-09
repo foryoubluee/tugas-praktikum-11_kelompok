@@ -71,14 +71,15 @@ int main() {
 
 void print_result(Mahasiswa mahasiswa[], int total_rows) {
   int name_length;
-  cout <<  endl << "Nilai Mata Kuliah Algoritma"                                             << endl;
-	cout << "-------------------------------------------------------------------------------|" << endl;
-	cout << "No  |       NIM |                   Nama | Tugas | UTS  | UAS | Bobot | Huruf  |" << endl;
-	cout << "-------------------------------------------------------------------------------|" << endl;
+  cout <<  endl << "Nilai Mata Kuliah Algoritma"                                               << endl;
+	cout << "|--------------------------------------------------------------------------------|" << endl;
+	cout << "| No  |       NIM |                   Nama | Tugas | UTS  | UAS | Bobot | Huruf  |" << endl;
+	cout << "|--------------------------------------------------------------------------------|" << endl;
   for(int i = 0; i < total_rows; i++) {
     string full_name = mahasiswa[i].name.fname + " " + mahasiswa[i].name.lname;
     name_length = full_name.length();
     string bobot = to_string(mahasiswa[i].nilai.bobot);
+    cout << "| ";
     cout << i + 1;
     if(i < 9) {
       cout << " ";
@@ -106,19 +107,21 @@ void print_result(Mahasiswa mahasiswa[], int total_rows) {
          << "   |" 
 	       << endl;
   }
-  cout << "-------------------------------------------------------------------------------|" << endl;
+  cout << "|--------------------------------------------------------------------------------|" << endl;
+
 }
 
 void write_result(Mahasiswa mahasiswa[], ofstream &outputFile,int total_rows) {
   int name_length;
   outputFile << "Nilai Mata Kuliah Algoritma"                                                      << endl;
-	outputFile << "-------------------------------------------------------------------------------|" << endl;
-	outputFile << "No  |       NIM |                   Nama | Tugas | UTS  | UAS | Bobot | Huruf  |" << endl;
-	outputFile << "-------------------------------------------------------------------------------|" << endl;
+	outputFile << "---------------------------------------------------------------------------------|" << endl;
+	outputFile << "| No  |       NIM |                   Nama | Tugas | UTS  | UAS | Bobot | Huruf  |" << endl;
+	outputFile << "---------------------------------------------------------------------------------|" << endl;
   for(int i = 0; i < total_rows; i++) {
     string full_name = mahasiswa[i].name.fname + " " + mahasiswa[i].name.lname;
     name_length = full_name.length();
     string bobot = to_string(mahasiswa[i].nilai.bobot);
+    outputFile << "| ";
     outputFile << i + 1;
                if(i < 9) {
                  outputFile << " ";
@@ -126,7 +129,7 @@ void write_result(Mahasiswa mahasiswa[], ofstream &outputFile,int total_rows) {
     outputFile << "  | " 
                << mahasiswa[i].NIM 
                << " |  " ;
-               for(int j = 0; j < name_length - 21; j++) {
+               for(int j = 0; j < 21 - name_length; j++) {
                  outputFile << " ";
                }        
     outputFile << mahasiswa[i].name.fname 
@@ -148,7 +151,7 @@ void write_result(Mahasiswa mahasiswa[], ofstream &outputFile,int total_rows) {
                << "   |" 
 	             << endl;
   }
-  outputFile << "-------------------------------------------------------------------------------|" << endl;
+  outputFile << "|--------------------------------------------------------------------------------|" << endl;
   outputFile.close();
 }
 
