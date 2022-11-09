@@ -176,13 +176,7 @@ void add_space(int the_length, int cols_space) {
   for(int i = 0; i < cols_space - the_length; i++) {
     cout << " ";
   }
-} 
-
-void add_space_to_file(ofstream outputFile, int the_length, int cols_space) {
-  for(int i = 0; i < cols_space - the_length; i++) {
-    outputFile << " ";
-  }
-} 
+};
 
 // !! SOAL !! //
 /*
